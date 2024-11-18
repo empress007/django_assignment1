@@ -1,0 +1,41 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/bootstrap-icons.svg">
+<!-- Font Awesome 6.0+ CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="container">
+
+  {% for card in cards %}
+  <div class="card">
+    <img src="{{card.image}}" alt="Person" class="card__image">
+    <p class="card__name">{{card.name}}</p>
+    <div class="grid-container">
+
+      <div class="grid-child-posts">
+        {{card.post}} Posts
+      </div>
+
+      <div class="grid-child-followers">
+        {{card.like}} Likes
+      </div>
+
+    </div>
+    <ul class="social-icons">
+      <li><a href="{{card.ig_link}}"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="{{card.x_link}}"><i class="fab fa-twitter"></i></a></li>
+      <li><a href="{{card.linkedIn_link}}"><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="{{card.fb_link}}"><i class="fab fa-facebook"></i></a></li>
+    </ul>
+    
+    <a href="tel:{{card.phone_number}}">
+    <button class="btn draw-border">Call</button>
+    <a href="https://wa.me/{{ card.number }}?text=Hi%20there!" target="_blank"> 
+      <button class="btn draw-border">
+        Message
+      </button>
+    </a>
+
+  </div>
+  {% endfor %}
+</div>  
